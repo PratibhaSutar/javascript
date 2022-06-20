@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"/>
+    <button onclick="save()">Save</button>
+
+
+    <script>
+        function save()
+        {
+            let name = document.getElementById("name").value;
+            setcookie("name", name);
+        }
+
+        function setcookie(name, value)
+        {
+            var nextday = new Date();
+            nextday.setDate(nextday.getDate() + 30);
+            document.cookie = name + "=" + value + ";expires=" + nextday.toString();
+        }
+
+                function getcookie(name)
+        {
+            let value = "";
+            var cookie = document.cookie;
+            var cookies = cookie.split(";");
+            console.log(cookies);
+            for(let i = 0; i < cookies.length; i++)
+            {
+                let data = cookies[i].split("=");
+                if(data[0].trim() == name)
+                {
+                    value = data[1];                    
+                }
+            }
+            return value;
+        }
+
+
+        function deletecookie(name)
+{
+    var nextday = new Date();
+    nextday.setDate(nextday.getDate() - 30);
+    document.cookie = name + "=X;expires=" + nextday.toString();
+}
+    deletecookie("name");
+    console.log(getcookie("name"));
+    </script>
+</body>
+
+</html>
