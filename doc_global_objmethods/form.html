@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        color{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <p class="color">Hello</p>
+    <p>Welcome</p>
+    <p>Awesome</p>
+    <p class="color">Great</p>
+    <button onclick="getcount()">Click Me</button><br/>
+    <label>Gender :</label> 
+    <label>
+    <input type="radio" id="male" value="Male" name="gender"/>Male
+    </label>
+    <label>
+    <input type="radio" id="female" value="Female" name="gender"/>Female
+</label>
+<label>
+    <input type="radio" id="other" value="Other" name="gender"/>Other
+</label>
+<br/>
+   <button onclick="getbyname()">Get By Name</button>
+   <button onclick="getbyclassname()">Ged By Class Name</button>
+<!----- 1. document.getElementById
+        2. document.getElemetsByTagName
+        3. document.getElementByClassName
+        4. document.getElementsByName-->
+    <script>
+        getcount = ()=>{
+            let paras = document.getElementsByTagName("p");
+            for(let i=0; i < paras.length; i++)
+            {
+                console.log(paras[i].innerHTML);
+            }
+            //alert(paras.length);
+            let names = ["A", "B", "C", "D"];
+            names.forEach((name) =>{
+                console.log(name);
+            })
+        }
+
+         
+        getbyname = ()=>{
+            let genders = document.getElementsByName("gender");
+            //alert(genders.length);
+            for(let i = 0; i < genders.length; i++)
+            {
+                if(genders[i].checked)
+                {
+                    alert(genders[i].value);
+                }
+               
+            }
+            
+        }
+        getbyclassname = ()=>{
+            let elements =document.getElementsByClassName('color');
+            for(let i = 0; i < elements.length; i++)
+            {
+                    alert(elements[i].innerHTML);
+               
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p id="mypara"></p>
+    <button onclick="printdoc()">Click</button>
+</body>
+    <script>
+        printdoc = ()=>{
+            //alert("hello");
+            //window.alert("hello");
+            //window.print("Welcome");
+            //window.print();
+            if(window.confirm("Sure to print") == true)
+            {
+                window.print();
+            }
+              
+        }
+
+        //let timer = setTimeout(()=>{
+            //document.getElementById('mypara').innerText = "My Paragraph";
+
+        //}, 5000);
+
+        //clearTimeout(timer);
+
+       let clock = setInterval(()=>{
+           let date = new Date();
+            document.getElementById('mypara').innerText = date.toString();
+
+        }, 1000);
+
+        setTimeout(()=>{ clearInterval()
+
+            clearInterval(clock);
+
+        }, 5000);
+    </script>
+</html>
